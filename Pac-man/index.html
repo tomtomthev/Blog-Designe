@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<mete charset="UTF-8">
+<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+<title>Pacman</title>
+<canvas id="myCanvas" width="600px" height="600px"></canvas>
+	<script>
+		//general setting
+		var canvas;
+		var ctx;
+		var HEIGHT;
+		var WIDTH;
+		var gameOver;
+		//for Pac-man
+		var x = 300;
+		var y = 300;
+		var r = 40;
+		var mx = 0;
+		var my = 4;
+		//for pink and orange ghost
+		var pinkX;
+		var pinkY;
+		var orangeX;
+		var orangeY;
+		var ghostWidth = 50;
+		var ghostHeight = 50;
+		var orangeCollision = false;
+		var pinkCollision = false;
+
+		function clear() {
+			canvas = document.getElementById("myCanvas");
+			ctx = canvas.getContext("2d");
+			ctx.clearRect( 0, 0, WIDTH, HEIGHT);
+		}
+
+		function init() {
+			canvas = document.getElementById("myCanvas");
+			ctx = canvas.getContext("2d");
+			pinkX = Math.floor(Math.random() * 550);
+			pinkY = Math.floor(Math.random() * 550);
+			orangeX = Math.floor(Math.random() * 550);
+			orangeY = Math.floor(Math.random() * 550);
+			window.onkeydown = keydownControl;
+
+			return setInterval(draw, 20)
+		}
+
+		function keydownControl(e) {
+			if(e.keyCode == 37 || e.keyCode == 65) {
+				mx = -4;
+				my = 0;
+			}
+			else if(e.keyCode == 38 || e.keyCode == 87) {
+				mx = 0;
+				my = -4;
+			}
+			else if(e.keyCode == 39 || e.keyCode == 68) {
+				mx = 4;
+				my = 0;
+			}
+			else if(e.keyCode == 40 || e.keyCode == 83) {
+				mx = 0;
+				my = 4;
+			}
+		}
+
+		function Pacman(x, y, r) {
+			canvas = document.getElementById("myCanvas");
+			ctx = canvas.getContext("2d");
+			var Pacman = new Image();
+			Pacman.src = "Pacman.gif"
+			ctx.drawImage(Pacman, x, y, r, r);
+		}
+
+		function pinkGhost() {
+			canvas = document.getElementById("myCanvas");
+			ctx = canvas.getContext("2d");
+			var pinkGhost = new Image();
+			pinkGhost.src = "Ghost.gif"
+			ctx.drawImage(pinkGhost, pinkX, pinkY, ghostWidth, ghostHeight);
+		}
+
+		function orangeGhost() {
+			canvas = document.getElementById("myCanvas");
+			ctx = canvas.getContext("2d");
+			var orangeGhost = new Image();
+			orangeGhost.src = "Ghost.gif"
+			ctx.drawImage(orangeGhost, orangeX, orangeY, ghostWidth, ghostHeight);
+		}
+
+		function collisionHandle() {
+			if (pinkCollision == true || orangeCollision == true) {
+				gameOver = true;
+			}
+		}
+
+		function collisionCheck() {
+			if ( (x >= pinkX) && (x <= pinkX + ghostWidth) && (y >= pinkY) && (y <= pinkY + ghostHeight)) {
+				pinkCollision = true;
+			}
+			else {
+				pinkCollision = false;
+			}
+			if ( (x >= orangeX) && (x <= orangeX + ghostWidth) && (y >= orangeY) && (y <= orangeY + ghostHeight)) {
+				orangeCollision = true;
+			}
+			else {
+				orangeCollision = false;
+			}
+		}
+
+		function followPacman() {
+			if(pinkX < x) {
+				pinkX += 1;
+			}
+			else {
+				pinkX -= 1;
+			}		
+			if(pinkY < y) {
+				pinkY += 1;
+			}
+			else {
+				pinkY -= 1;
+			}
+			if(orangeX < x) {
+				orangeX += 1;
+			}
+			else {
+				orangeX -= 1;
+			}		
+			if(orangeY < y) {
+				orangeY += 1;
+			}
+			else {
+				orangeY -= 1;
+			}
+		}
+
+		function draw() {
+			clear();
+
+			if (gameOver == true) {
+				canvas = document.getElementById("myCanvas");
+				ctx = canvas.getContext("2nd");
+				ctx.font = "40px Impact";
+				ctx.fillText("Game Over", 200, 300);
+			}
+			else {
+				pinkGhost();
+				orangeGhost();
+				Pacman(x, y, r);
+
+				if (x + mx > WIDTH - r || x + mx < 0) {
+					mx = -mx;
+				}
+				if (y + my > HEIGHT - r || y + my < 0) {
+					my = -my;
+				}
+				x += mx;
+				y += my;
+
+				followPacman();
+				collisionCheck();
+				collisionHandle();
+			}
+		}
+
+	</script>
+</head>
+<body onLoad="init()">
+
+</body>
+</html>

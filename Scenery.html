@@ -3,7 +3,7 @@
 <head>
 <meta charset= "UTF-8">
 <title>Scenery</title>
-<canvas id= "myCanvas" width= "800" height= "500"></canvas>
+<canvas id= "myCanvas" width= "1000" height= "1000"></canvas>
 <script>
 function draw() {
 	var c =document.getElementById("myCanvas")
@@ -20,12 +20,120 @@ function draw() {
 	ctx.fillStyle = "yellow";
 	ctx.fill();
 
+	//Triangle
+	ctx.beginPath();
+	ctx.strokeStyle = "red"; // Any color
+	ctx.moveTo(225, 0); // Initial X, Y value (P1)
+	ctx.lineTo(150, 100) // 
+	ctx.lineTo(300, 100) // P3
+	ctx.closePath();
+	ctx.stroke();
+	ctx.fillStyle = "yellow";
+	ctx.fill();
+
+		//Triangle
+	ctx.beginPath();
+	ctx.strokeStyle = "red"; // Any color
+	ctx.moveTo(375, 0); // Initial X, Y value (P1)
+	ctx.lineTo(300, 100) // 
+	ctx.lineTo(450, 100) // P3
+	ctx.closePath();
+	ctx.stroke();
+	ctx.fillStyle = "yellow";
+	ctx.fill();
+
+	//Triangle
+	ctx.beginPath();
+	ctx.strokeStyle = "red"; // Any color
+	ctx.moveTo(525, 0); // Initial X, Y value (P1)
+	ctx.lineTo(450, 100) // 
+	ctx.lineTo(600, 100) // P3
+	ctx.closePath();
+	ctx.stroke();
+	ctx.fillStyle = "yellow";
+	ctx.fill();
+
+//Triangle
+	ctx.beginPath();
+	ctx.strokeStyle = "red"; // Any color
+	ctx.moveTo(75, 200); // Initial X, Y value (P1)
+	ctx.lineTo(0, 100) // 
+	ctx.lineTo(150, 100) // P3this one
+	ctx.closePath();
+	ctx.stroke();
+	ctx.fillStyle = "yellow";
+	ctx.fill();
+
+	//Triangle
+	ctx.beginPath();
+	ctx.strokeStyle = "red"; // Any color
+	ctx.moveTo(225, 200); // Initial X, Y value (P1)
+	ctx.lineTo(150, 100) // 
+	ctx.lineTo(300, 100) // P3this one
+	ctx.closePath();
+	ctx.stroke();
+	ctx.fillStyle = "yellow";
+	ctx.fill();
+		//Triangle
+	ctx.beginPath();
+	ctx.strokeStyle = "red"; // Any color
+	ctx.moveTo(375, 200); // Initial X, Y value (P1)
+	ctx.lineTo(300, 100) // 
+	ctx.lineTo(450, 100) // P3this one
+	ctx.closePath();
+	ctx.stroke();
+	ctx.fillStyle = "yellow";
+	ctx.fill();
+
+	//Triangle
+	ctx.beginPath();
+	ctx.strokeStyle = "red"; // Any color
+	ctx.moveTo(525, 200); // Initial X, Y value (P1)
+	ctx.lineTo(450, 100) // 
+	ctx.lineTo(600, 100) // P3this one
+	ctx.closePath();
+	ctx.stroke();
+	ctx.fillStyle = "yellow";
+	ctx.fill();
 	// Circle
 	ctx.beginPath();
-	ctx.arc(200, 200, 20, 0, 6.28);
+	ctx.arc(900, 100, 100, 0, 6.28);
 	ctx.stroke();
 	ctx.fillStyle = "black";
 	ctx.fill();
+
+	// Circle
+	ctx.beginPath();
+	ctx.arc(900, 300, 100, 0, 6.28);
+	ctx.stroke();
+	ctx.fillStyle = "black";
+	ctx.fill();
+
+	// Circle
+	ctx.beginPath();
+	ctx.arc(900, 500, 100, 0, 6.28);
+	ctx.stroke();
+	ctx.fillStyle = "black";
+	ctx.fill();
+
+	// Circle
+	ctx.beginPath();
+	ctx.arc(900, 700, 100, 0, 6.28);
+	ctx.stroke();
+	ctx.fillStyle = "black";
+	ctx.fill();
+
+	// Rectangle
+	ctx.fillStyle = "blue";
+	ctx.fillRect(400, 400, 100, 150);
+
+	// Rectangle
+	ctx.fillStyle = "blue";
+	ctx.fillRect(400, 400, 100, 150);
+
+		// Rectangle
+	ctx.fillStyle = "blue";
+	ctx.fillRect(400, 400, 100, 150);
 
 	// Rectangle
 	ctx.fillStyle = "blue";
