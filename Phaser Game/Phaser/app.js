@@ -60,7 +60,7 @@ function create() {
 
 	cursors = game.input.keyboard.createCursorKeys();
 
-	stars = game.add physicsGroup();
+	stars = game.add.physicsGroup();
 	stars.enableBody = true;
 	for (var i = 0; i < 50; i++)
 	{
